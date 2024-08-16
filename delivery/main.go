@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/Abzaek/clean-arch/Infrastructure"
+	repositories "github.com/Abzaek/clean-arch/Repositories"
 	usecases "github.com/Abzaek/clean-arch/Usecases"
 	"github.com/Abzaek/clean-arch/delivery/controllers"
 	"github.com/Abzaek/clean-arch/delivery/routers"
@@ -26,8 +27,8 @@ func main() {
 
 	database := dbClient.Database("api")
 
-	userCollection := Infrastructure.NewMongoUserService(database, "user")
-	taskCollection := Infrastructure.NewMongoTaskService(database, "task")
+	userCollection := repositories.NewMongoUserService(database, "user")
+	taskCollection := repositories.NewMongoTaskService(database, "task")
 
 	userUseCase := usecases.NewUserUseCase(userCollection)
 	taskUseCase := usecases.NewTaskUseCase(taskCollection)

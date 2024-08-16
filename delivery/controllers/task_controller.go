@@ -11,7 +11,7 @@ import (
 )
 
 type TaskController struct {
-	TUC *usecases.TaskUseCase
+	TUC usecases.Usecases
 }
 
 func (tc *TaskController) CreateTask(c *gin.Context) {
